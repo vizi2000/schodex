@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hoszman – Kalkulator schodów</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header glass">
+    <div class="logo-container">
+      <img src="assets/hoszman-logo.png" alt="Hoszman" class="logo" />
+    </div>
+    <h1>Kalkulator schodów z inteligentnym doradcą</h1>
+  </header>
+
+  <main>
+    <!-- Chat section -->
+    <section class="section glass" id="chatSection">
+      <h2>Krok 1: Porozmawiaj z agentem</h2>
+      <div id="chatMessages" class="chat-messages"></div>
+      <div class="chat-input">
+        <input type="text" id="chatInput" placeholder="Napisz wiadomość..." />
+        <button id="sendChat">Wyślij</button>
+      </div>
+    </section>
+
+    <!-- Upload & analysis section -->
+    <section class="section glass" id="uploadSection">
+      <h2>Krok 2: Wczytaj zdjęcie i przeanalizuj surowe schody</h2>
+      <input type="file" id="photoUpload" accept="image/*" />
+      <div class="preview-container">
+        <img id="photoPreview" src="" alt="Podgląd zdjęcia" class="preview" />
+      </div>
+      <button id="analyzeBtn" disabled>Analizuj zdjęcie i zaproponuj parametry</button>
+      <div id="analysisResult" class="analysis-result"></div>
+    </section>
+
+    <!-- Parameter editing section -->
+    <section class="section glass" id="paramsSection">
+      <h2>Krok 3: Skoryguj parametry schodów</h2>
+      <form id="stairForm">
+        <div class="form-row">
+          <label for="stairType">Typ schodów:</label>
+          <select id="stairType">
+            <option value="Proste">Proste</option>
+            <option value="Jednozabiegowe">Jednozabiegowe</option>
+            <option value="Jednozabiegowe z podestem">Jednozabiegowe z podestem</option>
+            <option value="Dwuzabiegowe">Dwuzabiegowe</option>
+            <option value="Dwuzabiegowe z podestem">Dwuzabiegowe z podestem</option>
+            <option value="Trzyzabiegowe">Trzyzabiegowe</option>
+            <option value="Spiralne">Spiralne</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="construction">Konstrukcja schodów:</label>
+          <select id="construction">
+            <option value="Wpuszczane">Wpuszczane</option>
+            <option value="Wpuszczano nakładane">Wpuszczano nakładane</option>
+            <option value="Nakładane">Nakładane</option>
+            <option value="Obicie schodów betonowych">Obicie schodów betonowych</option>
+            <option value="Bolcowe">Bolcowe</option>
+            <option value="Bolcowo-wangowe">Bolcowo-wangowe</option>
+            <option value="Wangowo-dywanowe">Wangowo-dywanowe</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="woodType">Gatunek drewna:</label>
+          <select id="woodType">
+            <option value="Buk">Buk</option>
+            <option value="Jesion">Jesion</option>
+            <option value="Dąb">Dąb</option>
+            <option value="Merbau">Merbau</option>
+            <option value="Sosna">Sosna</option>
+            <option value="Świerk">Świerk</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="finish">Wykończenie:</label>
+          <select id="finish">
+            <option value="Olej">Olej</option>
+            <option value="Olej barwiony">Olej barwiony</option>
+            <option value="Bejca">Bejca</option>
+            <option value="Lakier">Lakier</option>
+            <option value="Farba">Farba</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="height">Wysokość kondygnacji (cm):</label>
+          <input type="number" id="height" min="100" value="280" />
+        </div>
+        <div class="form-row">
+          <label for="width">Szerokość schodów (cm):</label>
+          <input type="number" id="width" min="50" value="90" />
+        </div>
+        <div class="form-row">
+          <label for="stepCount">Liczba stopni:</label>
+          <input type="number" id="stepCount" min="5" value="14" />
+        </div>
+        <button type="button" id="calculateBtn">Oblicz cenę</button>
+      </form>
+      <div id="priceResult" class="price-result"></div>
+    </section>
+
+    <!-- Visualization section -->
+    <section class="section glass" id="visualSection">
+      <h2>Krok 4: Wygeneruj wizualizację</h2>
+      <button id="generateBtn" disabled>Generuj wizualizację</button>
+      <div class="preview-container">
+        <img id="visualizationImage" src="" alt="Wizualizacja" class="preview" />
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
